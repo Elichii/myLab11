@@ -1,0 +1,86 @@
+ELIAS T. GEZAHEGN
+Homework - 11 (TypeSet)
+Submitted on 1/31/2017
+
+Answer1 --------------------------------------------------------------
+var money:number;
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+ let bankAcount ={
+     money:2000,
+     deposit(value:number){
+         this.money+=value;
+     }
+ };
+ var name:string;
+ var hobbies:string[];
+ let myself={
+     name:"Assad",
+     bankAcount:bankAcount,
+     hobbies:["violin","Cooking"]
+ };
+ var yourself=myself.bankAcount.deposit(3000);
+ console.log(yourself);
+
+Answer 2 ---------------------------------------------------------------------------------
+ class Car{
+     name: string;
+     acceleration:number=0;
+     constructor(name:string){
+         this.name=name;
+     }
+     honk(){
+         console.log('${this.name} is saying tooooooot!');
+     };
+     accelerate(speed){
+          this.acceleration=this.acceleration + speed;
+     }
+ };
+ var car= new Car("BMW");
+ car.honk();
+ console.log(car.acceleration);
+ car.accelerate(60);
+ console.log(car.acceleration);
+ 
+Answer 3 -----------------------------------------------------------------------------------------------------------
+var baseObject = (function () {
+    function baseObject(width, length) {
+        this.width = 0;
+        this.length = 0;
+        this.width = width;
+        this.length = length;
+    }
+    baseObject.prototype.calSize = function () {
+        console.log(this.width * this.length);
+    };
+    return baseObject;
+}());
+;
+var rectangle = (function (_super) {
+    __extends(rectangle, _super);
+    function rectangle(width, length) {
+        return _super.call(this, width, length) || this;
+    }
+    return rectangle;
+}(baseObject));
+var myrec = new rectangle(5, 2);
+console.log(myrec);
+
+Answer 4 -----------------------------------------------------------------------------------------------------------
+ class person {
+    private _firstName: string ="";
+     get firstName(){
+         return this._firstName;
+     }
+     set firstName(value){
+         this._firstName= value.toUpperCase();
+     }
+     enumerable:boolean =true;
+     configurable:boolean = true
+ };
+ let myperson= new person();
+ myperson.firstName= "Assad";
+ console.log(myperson.firstName); //ASAAD
